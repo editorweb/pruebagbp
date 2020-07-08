@@ -96,12 +96,24 @@ class _SignupPageState extends State<SignupPage> implements SignupCallBack {
                     new Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: new TextFormField(
+                        validator: (value) {
+                        if (value.isEmpty) {
+                         return 'Por favor ingrese su usuario';
+                       }
+                          return null;
+                        },
                         onSaved: (val) => _username = val,
                         decoration: new InputDecoration(labelText: "Username"),
                       ),
                     ), new Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: new TextFormField(
+                        validator: (value) {
+                        if (value.isEmpty) {
+                         return 'Por favor ingrese su nombre';
+                       }
+                          return null;
+                        },
                         onSaved: (val) => _nombre = val,
                         decoration: new InputDecoration(labelText: "Nombre"),
                       ),
@@ -109,6 +121,12 @@ class _SignupPageState extends State<SignupPage> implements SignupCallBack {
                      new Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: new TextFormField(
+                        validator: (value) {
+                        if (value.isEmpty) {
+                         return 'Por favor ingrese su apellido';
+                       }
+                          return null;
+                        },
                         onSaved: (val) => _apellido = val,
                         decoration: new InputDecoration(labelText: "Apellido"),
                       ),
@@ -116,6 +134,12 @@ class _SignupPageState extends State<SignupPage> implements SignupCallBack {
                      new Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: new TextFormField(
+                        validator: (value) {
+                        if (value.isEmpty) {
+                         return 'Por favor ingrese su correo';
+                       }
+                          return null;
+                        },
                         onSaved: (val) => _correo = val,
                         decoration: new InputDecoration(labelText: "Correo"),
                       ),
@@ -123,6 +147,12 @@ class _SignupPageState extends State<SignupPage> implements SignupCallBack {
                     new Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: new TextFormField(
+                        validator: (value) {
+                        if (value.isEmpty) {
+                         return 'Por favor ingrese su usuario';
+                       }
+                          return null;
+                        },
                         onSaved: (val) => _password = val,
                         decoration: new InputDecoration(labelText: "Password"),
                       ),

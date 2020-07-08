@@ -86,6 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
            )
          ],
       ),
+    
       body: FutureBuilder<List<Photo>>(
         future: fetchPhotos(http.Client()),
         builder: (context, snapshot) {
