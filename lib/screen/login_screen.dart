@@ -50,12 +50,13 @@ class _LoginPageState extends State<LoginPage> implements LoginCallBack {
   }
 
   var value;
+  var nombre;
+  var correo;
  getPref() async {
    SharedPreferences preferences = await SharedPreferences.getInstance();
    setState(() {
      value = preferences.getInt("value");
-
-     _loginStatus = value == 1 ? LoginStatus.signIn : LoginStatus.notSignIn;
+       _loginStatus = value == 1 ? LoginStatus.signIn : LoginStatus.notSignIn;
    });
  }
 

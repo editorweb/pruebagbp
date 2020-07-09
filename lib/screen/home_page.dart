@@ -4,14 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:login/models/user.dart';
 import 'package:login/data/database_helper.dart';
 
 const String _AccountName = 'Aravind Vemula';
 const String _AccountEmail = 'vemula.aravind336@gmail.com';
 const String _AccountAbbr = 'GBP';
-
-
-
+  
 Future<List<Photo>> fetchPhotos(http.Client client) async {
   final response =
       await client.get('https://api.github.com/users');
@@ -64,10 +63,15 @@ class _HomeScreenState extends State<HomeScreen> {
  }
 
  var value;
+ var user;
+
+
   getPref() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() {
       value = preferences.getInt("value");
+      user = preferences.getString("user");
+     
     });
   }
 
