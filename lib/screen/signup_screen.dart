@@ -149,12 +149,12 @@ class _SignupPageState extends State<SignupPage> implements SignupCallBack {
                       child: new TextFormField(
                         validator: (value) {
                         if (value.isEmpty) {
-                         return 'Por favor ingrese su usuario';
+                         return 'Por favor ingrese su contraseña';
                        }
                           return null;
                         },
                         onSaved: (val) => _password = val,
-                        decoration: new InputDecoration(labelText: "Password"),
+                        decoration: new InputDecoration(labelText: "Contraseña"),
                       ),
                     )
                   ],

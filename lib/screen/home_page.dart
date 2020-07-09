@@ -4,6 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:login/data/database_helper.dart';
+
+const String _AccountName = 'Aravind Vemula';
+const String _AccountEmail = 'vemula.aravind336@gmail.com';
+const String _AccountAbbr = 'GBP';
+
+
 
 Future<List<Photo>> fetchPhotos(http.Client client) async {
   final response =
@@ -71,7 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
    getPref();
  }
 
-
    @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -87,34 +93,20 @@ class _HomeScreenState extends State<HomeScreen> {
          ],
       ),
      drawer: Drawer( 
-       child: ListView(
-          padding: EdgeInsets.zero,
-    children: <Widget>[
-      DrawerHeader(
-        child: Text('Drawer Header'),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-                image: ExactAssetImage('assets/images/logo.png'),
-                fit: BoxFit.cover,
-              ),
-        ),
-      ),
-      ListTile(
-        title: Text('Item 1'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-      ListTile(
-        title: Text('Item 2'),
-        onTap: () {
-          // Update the state of the app.
-          // ...
-        },
-      ),
-    ],
-       ),
+       child: new Column(
+      children: <Widget>[
+        new UserAccountsDrawerHeader(
+          
+          accountName: const Text(_AccountName),
+          accountEmail: const Text(_AccountEmail),
+          currentAccountPicture: new CircleAvatar(
+             backgroundImage: AssetImage('assets/images/logo.png'),
+            backgroundColor: Colors.brown,
+            child: new Text(_AccountAbbr)
+          ),
+        )
+      ]
+    )
     ),
       body: FutureBuilder<List<Photo>>(
         future: fetchPhotos(http.Client()),
